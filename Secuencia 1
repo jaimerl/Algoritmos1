@@ -1,0 +1,29 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+void secuencia (int a);
+
+using namespace std;
+
+void main(){
+	int a;
+	cout<<"Ingrese un numero: ";
+	cin>>a;
+	secuencia(a);
+}
+
+
+void secuencia(int a){
+	int i,par,impar,k;
+	par=2;impar=1;k=1;
+	for(i=0;i<a;i++){
+		if(k==1){
+			cout<<par<<endl;
+			par=par+2;
+			k=0;}
+		else{
+			cout<<impar<<endl;
+			impar=impar+2;
+			k=1;}
+	}
+}
