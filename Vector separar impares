@@ -1,0 +1,35 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define NMAX 1000
+void separaimpares (int*A,int*B,int a,int&b);
+void cargar (int a, int*A);
+
+using namespace std;
+
+void main(){
+	int A[NMAX],i,a,B[NMAX],b; b=0;
+	cout<< "Indicar el numero de elementos: ";
+	cin>> a;
+	cargar(a,A);
+	separaimpares(A,B,a,b);
+	cout<<"Son: "<<b<<" digitos."<<endl;
+}
+
+
+void separaimpares (int*A,int*B,int a,int&b){
+	int i;
+	for(i=0;i<a;i++){
+		if(A[i]%2!=0){
+			B[i]=A[i];
+			cout<<B[i]<<endl;
+			b++;}
+	}
+}
+
+void cargar(int a,int*A){
+	int i;
+	for(i=0;i<a;i++){
+		cin>>A[i];
+	}
+}
