@@ -1,0 +1,84 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#define fil 100
+#define col 100
+
+using namespace std;
+
+struct Mat{
+	int A[fil] [col];
+}
+
+void cargarVector(int n, Mat Vec[]);
+void Mostrar(int n, Mat Vec[]);
+int crearPrimo(int a);
+bool verificarPrimo(int a);
+
+
+void main(){
+	int n; Mat Vec[80];
+	cout<<"Ingrese el tamaño: ";
+	cin>> n;
+	cargarVector(n,Vec);
+	Mostrar(n,Vec);
+}
+
+
+
+void cargarVector(int n, Mat Vec[]){
+	int i,j,p,k=0,nat=1,primo=1;
+	for(p=0;p<n;p++){
+		for(i=0;i<n;i++){
+			if(k==0){
+				for(j=0;j<n;j++){
+					Vec[p].A[i][j]=crearPrimo(primo);
+					primo++;
+				k=1;}
+			}
+			else{
+				for(j=0;j<n;j++){
+					Vec[p].A[i][j]=nat;
+					nat++;}
+				k=0;
+			}
+		}
+	}
+}
+
+void Mostrar(int n, Mat Vec[]){
+	int i,j,p;
+	for(p=0;p<n;p++){
+		for(i=0;i<n;i++){
+			for(j=0;j<n;j++){
+				cout<<Vec[p].A[i][j];
+			}
+			cout<<endl;
+		}
+		cout<<endl;
+		cout<<endl;
+	}
+}
+	  
+
+
+int crearPrimo(int a){
+	int x=0, y=1;
+	while(y<a){
+		x++;
+		if(verificarPrimo(x)==true){
+			y++;}
+	}
+	return(x);
+}
+
+
+bool verificarPrimo(int a){
+	int i;
+	for(i=2;i<a-1;i++){
+		if(a%i==0){
+			return(false);
+		}
+
+    return(true);
+}
